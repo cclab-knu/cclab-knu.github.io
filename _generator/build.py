@@ -323,7 +323,7 @@ def page(path, title, active, body, extra_head="", script=""):
 <body>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="" aria-label="CCLab@KNU"><img class="brand-logo" src="assets/images/r2-01.svg" alt="CCLab@KNU"></a>
+    <a class="brand" href="" aria-label="CCLab@KNU"><img class="brand-logo" src="/assets/images/r2-01.svg" alt="CCLab@KNU"></a>
     <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
     <nav class="nav" id="nav">{nav}</nav>
   </div>
