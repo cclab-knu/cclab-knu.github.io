@@ -60,6 +60,7 @@ img { max-width: 100%; height: auto; }
 .brand b { font-family: var(--sans); font-size: clamp(1.15rem, 3.5vw, 1.3rem); letter-spacing: -0.01em; }
 .brand b span { color: var(--accent); }
 .brand small { color: var(--muted); font-size: 0.78rem; }
+.brand-logo{ height:clamp(40px, 8vw, 52px); width:auto; display:block; }
 .nav { display: flex; gap: 4px; flex-wrap: wrap; }
 .nav a {
   color: var(--muted); padding: 6px 12px; border-radius: 999px;
