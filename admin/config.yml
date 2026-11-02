@@ -1,0 +1,284 @@
+# CCLab@KNU 관리자(CMS) 설정 — Sveltia CMS (Decap 호환)
+# repo 이름이 다르면 아래 repo 값을 실제 저장소(owner/name)로 바꾸세요.
+# base_url 은 배포한 로그인용 Cloudflare Worker 주소로 바꾸세요(세팅 후).
+
+backend:
+  name: github
+  repo: cclab-knu/cclab-knu.github.io          # ← 실제 저장소명으로
+  branch: main
+  base_url: https://cclab-knu.ihchoi.workers.dev   # ← 배포한 Worker 주소로 교체
+
+media_folder: assets/uploads
+public_folder: assets/uploads
+
+locale: ko
+
+collections:
+  # ───────────────────────── 소식 (News)
+  - name: news
+    label: 소식
+    label_singular: 소식
+    folder: content/news
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{date}} · {{title}}"
+    media_folder: /assets/news
+    public_folder: assets/news
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: date,  label: 날짜, widget: datetime, date_format: "YYYY.MM.DD", time_format: false, format: "YYYY.MM.DD" }
+      - { name: body,  label: 본문, widget: markdown, required: false }
+
+  # ───────────────────────── 강의자료 (Courses) — 게시판마다 별도 컬렉션
+  - name: course_genchem
+    label: "강의 · 일반화학및실험 1·2"
+    label_singular: 강의글
+    folder: content/courses/genchem
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    media_folder: /assets/boards/genchem
+    public_folder: assets/boards/genchem
+    summary: "{{date}} · {{title}}"
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: date,  label: 날짜, widget: datetime, date_format: "YYYY.MM.DD", time_format: false, format: "YYYY.MM.DD" }
+      - { name: file,  label: "첨부파일 (PDF 등)", widget: file, required: false }
+      - { name: body,  label: 본문, widget: markdown, required: false }
+  - name: course_natsci
+    label: "강의 · 자연과학의 이해"
+    label_singular: 강의글
+    folder: content/courses/natsci
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    media_folder: /assets/boards/natsci
+    public_folder: assets/boards/natsci
+    summary: "{{date}} · {{title}}"
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: date,  label: 날짜, widget: datetime, date_format: "YYYY.MM.DD", time_format: false, format: "YYYY.MM.DD" }
+      - { name: file,  label: "첨부파일 (PDF 등)", widget: file, required: false }
+      - { name: body,  label: 본문, widget: markdown, required: false }
+  - name: course_advquanchem
+    label: "강의 · 고등양자화학 1·2"
+    label_singular: 강의글
+    folder: content/courses/advquanchem
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    media_folder: /assets/boards/advquanchem
+    public_folder: assets/boards/advquanchem
+    summary: "{{date}} · {{title}}"
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: date,  label: 날짜, widget: datetime, date_format: "YYYY.MM.DD", time_format: false, format: "YYYY.MM.DD" }
+      - { name: file,  label: "첨부파일 (PDF 등)", widget: file, required: false }
+      - { name: body,  label: 본문, widget: markdown, required: false }
+  - name: course_statmech
+    label: "강의 · 통계역학"
+    label_singular: 강의글
+    folder: content/courses/statmech
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    media_folder: /assets/boards/statmech
+    public_folder: assets/boards/statmech
+    summary: "{{date}} · {{title}}"
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: date,  label: 날짜, widget: datetime, date_format: "YYYY.MM.DD", time_format: false, format: "YYYY.MM.DD" }
+      - { name: file,  label: "첨부파일 (PDF 등)", widget: file, required: false }
+      - { name: body,  label: 본문, widget: markdown, required: false }
+  - name: course_compchem
+    label: "강의 · 화학을위한수학 (전산화학)"
+    label_singular: 강의글
+    folder: content/courses/compchem
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    media_folder: /assets/boards/compchem
+    public_folder: assets/boards/compchem
+    summary: "{{date}} · {{title}}"
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: date,  label: 날짜, widget: datetime, date_format: "YYYY.MM.DD", time_format: false, format: "YYYY.MM.DD" }
+      - { name: file,  label: "첨부파일 (PDF 등)", widget: file, required: false }
+      - { name: body,  label: 본문, widget: markdown, required: false }
+  - name: course_physchem
+    label: "강의 · 물리화학 1·2"
+    label_singular: 강의글
+    folder: content/courses/physchem
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    media_folder: /assets/boards/physchem
+    public_folder: assets/boards/physchem
+    summary: "{{date}} · {{title}}"
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: date,  label: 날짜, widget: datetime, date_format: "YYYY.MM.DD", time_format: false, format: "YYYY.MM.DD" }
+      - { name: file,  label: "첨부파일 (PDF 등)", widget: file, required: false }
+      - { name: body,  label: 본문, widget: markdown, required: false }
+  - name: course_quanchem
+    label: "강의 · 양자화학"
+    label_singular: 강의글
+    folder: content/courses/quanchem
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    media_folder: /assets/boards/quanchem
+    public_folder: assets/boards/quanchem
+    summary: "{{date}} · {{title}}"
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: date,  label: 날짜, widget: datetime, date_format: "YYYY.MM.DD", time_format: false, format: "YYYY.MM.DD" }
+      - { name: file,  label: "첨부파일 (PDF 등)", widget: file, required: false }
+      - { name: body,  label: 본문, widget: markdown, required: false }
+  - name: course_compandchem
+    label: "강의 · 계산화학과분자모델링"
+    label_singular: 강의글
+    folder: content/courses/compandchem
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    media_folder: /assets/boards/compandchem
+    public_folder: assets/boards/compandchem
+    summary: "{{date}} · {{title}}"
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: date,  label: 날짜, widget: datetime, date_format: "YYYY.MM.DD", time_format: false, format: "YYYY.MM.DD" }
+      - { name: file,  label: "첨부파일 (PDF 등)", widget: file, required: false }
+      - { name: body,  label: 본문, widget: markdown, required: false }
+  - name: course_chemkinetics
+    label: "강의 · 화학반응속도론"
+    label_singular: 강의글
+    folder: content/courses/chemkinetics
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    media_folder: /assets/boards/chemkinetics
+    public_folder: assets/boards/chemkinetics
+    summary: "{{date}} · {{title}}"
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: date,  label: 날짜, widget: datetime, date_format: "YYYY.MM.DD", time_format: false, format: "YYYY.MM.DD" }
+      - { name: file,  label: "첨부파일 (PDF 등)", widget: file, required: false }
+      - { name: body,  label: 본문, widget: markdown, required: false }
+  - name: course_hhwang
+    label: "강의 · 구 강의게시판(2007–2014)"
+    label_singular: 강의글
+    folder: content/courses/hhwang
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    media_folder: /assets/boards/hhwang
+    public_folder: assets/boards/hhwang
+    summary: "{{date}} · {{title}}"
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: date,  label: 날짜, widget: datetime, date_format: "YYYY.MM.DD", time_format: false, format: "YYYY.MM.DD" }
+      - { name: file,  label: "첨부파일 (PDF 등)", widget: file, required: false }
+      - { name: body,  label: 본문, widget: markdown, required: false }
+
+  # ───────────────────────── 논문 (Publications)
+  - name: publications
+    label: 논문
+    label_singular: 논문
+    folder: content/publications
+    create: true
+    slug: "{{year}}-{{slug}}"
+    summary: "{{year}} · {{body}}"
+    media_folder: /assets/publications/papers
+    public_folder: assets/publications/papers
+    fields:
+      - { name: num,  label: "번호 (비우면 해당 연도 맨 위)", widget: number, required: false, value_type: int }
+      - { name: year, label: 연도, widget: number, value_type: int, required: false }
+      - { name: pdf,  label: "논문 PDF (올리면 papers 폴더에 저장)", widget: file, required: false }
+      - { name: body, label: "인용 정보 (저자·제목·저널 — <b> <i> 태그 가능)", widget: text }
+
+  # ───────────────────────── 구성원 (Members)
+  - name: members
+    label: 구성원
+    label_singular: 구성원
+    folder: content/people/members
+    create: true
+    slug: "{{fields.group}}-{{order}}-{{slug}}"
+    summary: "[{{group}}] {{name}} ({{role}})"
+    media_folder: /assets/people/photos
+    public_folder: people/photos
+    fields:
+      - { name: name, label: 이름, widget: string }
+      - name: group
+        label: 그룹
+        widget: select
+        options:
+          - { label: "연구교수 (resprof)", value: resprof }
+          - { label: "박사후연구원 (postdoc)", value: postdoc }
+          - { label: "대학원생 (grad)", value: grad }
+          - { label: "학부연구생 (undergrad)", value: undergrad }
+      - { name: role,  label: 과정, widget: string }
+      - { name: order, label: 순번, widget: number, value_type: int }
+      - { name: email, label: 이메일, widget: string, required: false }
+      - { name: research, label: 연구분야, widget: string, required: false }
+      - { name: photo, label: 사진, widget: image, required: false }
+
+  # ───────────────────────── 페이지 (Main page · Research)
+  - name: pages
+    label: 페이지
+    media_folder: /assets/images
+    public_folder: assets/images
+    files:
+      - name: home
+        label: 메인 페이지
+        file: content/pages/home.md
+        fields:
+          - { name: hero_title, label: 메인 페이지 제목, widget: string }
+          - { name: hero_intro, label: 메인 페이지 소개, widget: text }
+          - { name: hero_image, label: 메인 페이지 이미지, widget: image, required: false, media_folder: /assets/images, public_folder: images }
+          - { name: address, label: 주소, widget: string }
+          - { name: office_prof, label: 교수연구실, widget: string }
+          - { name: office_student, label: 학생연구실, widget: string }
+          - { name: tel, label: TEL, widget: string }
+          - { name: fax, label: FAX, widget: string }
+          - { name: email, label: Email, widget: string }
+          - { name: mailing, label: Mailing Address, widget: text }
+      - name: research_ko
+        label: Research (한국어)
+        file: content/pages/research-ko.md
+        fields:
+          - { name: body, label: 본문, widget: markdown }
+      - name: research_en
+        label: Research (English)
+        file: content/pages/research-en.md
+        fields:
+          - { name: body, label: 본문, widget: markdown }
+
+  # ───────────────────────── People 상세 (PI · 졸업생 · 사진)
+  - name: people_extra
+    label: People 상세
+    files:
+      - name: pi
+        label: 교수 (PI)
+        file: content/people/pi.md
+        fields:
+          - { name: name, label: 이름, widget: string }
+          - { name: name_en, label: 영문명, widget: string, required: false }
+          - { name: role, label: 직함, widget: string }
+          - { name: email, label: 이메일, widget: string, required: false }
+          - { name: phone, label: 전화, widget: string, required: false }
+          - { name: photo, label: 사진, widget: image, required: false, media_folder: /assets/images, public_folder: images }
+          - { name: body, label: 본문 (학력·경력), widget: markdown, required: false }
+      - name: alumni
+        label: 졸업생
+        file: content/people/alumni.md
+        fields:
+          - { name: title, label: 제목, widget: hidden, default: 졸업생 }
+          - name: people
+            label: 졸업생 목록
+            widget: list
+            fields:
+              - { name: name, label: 이름, widget: string }
+              - { name: period, label: 과정·기간, widget: string }
+      - name: gallery
+        label: 사진 갤러리
+        file: content/people/gallery.md
+        fields:
+          - { name: title, label: 제목, widget: hidden, default: 사진 }
+          - name: photos
+            label: 사진 목록
+            widget: list
+            fields:
+              - { name: image, label: 이미지, widget: image, media_folder: /assets/people/photos, public_folder: people/photos }
+              - { name: date, label: 날짜, widget: string }
+              - { name: caption, label: 설명, widget: string }
