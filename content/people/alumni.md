@@ -73,6 +73,12 @@ people:
     period: 학부 ’22–’23, 석사 ’23–’25
   - name: 유진혁
     period: 학부 ’22–’23
+  - name: 방소현
+    period: 학부 ’22–’24
+  - name: 이선우
+    period: 학부 ’22–’24
+  - name: 탁영서
+    period: 학부 ’22–’24
   - name: 강명진
     period: 학부 ’23–’25
   - name: 김수아
