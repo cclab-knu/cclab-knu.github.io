@@ -57,7 +57,7 @@ img { max-width: 100%; height: auto; }
 }
 .brand { display: flex; flex-direction: column; line-height: 1.2; color: var(--ink); }
 .brand:hover { text-decoration: none; }
-.brand b { font-family: var(--serif); font-size: clamp(1.15rem, 3.5vw, 1.3rem); letter-spacing: -0.01em; }
+.brand b { font-family: var(--sans); font-size: clamp(1.15rem, 3.5vw, 1.3rem); letter-spacing: -0.01em; }
 .brand b span { color: var(--accent); }
 .brand small { color: var(--muted); font-size: 0.78rem; }
 .nav { display: flex; gap: 4px; flex-wrap: wrap; }
@@ -81,10 +81,10 @@ img { max-width: 100%; height: auto; }
 
 /* Page */
 main { padding: 48px 0 72px; }
-.page-title { font-family: var(--serif); font-size: clamp(1.6rem, 4.5vw, 2rem); margin: 0 0 6px; letter-spacing: -0.02em; }
+.page-title { font-family: var(--sans); font-size: clamp(1.6rem, 4.5vw, 2rem); margin: 0 0 6px; letter-spacing: -0.02em; }
 .page-lead { color: var(--muted); margin: 0 0 36px; }
 h2 {
-  font-family: var(--serif); font-size: clamp(1.2rem, 3.5vw, 1.35rem); margin: 48px 0 16px;
+  font-family: var(--sans); font-size: clamp(1.2rem, 3.5vw, 1.35rem); margin: 48px 0 16px;
   padding-bottom: 8px; border-bottom: 1px solid var(--line);
 }
 h2:first-child { margin-top: 0; }
@@ -95,7 +95,7 @@ h3 { font-size: 1.08rem; margin: 28px 0 8px; }
   display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center;
   margin-bottom: 56px;
 }
-.hero h1 { font-family: var(--serif); font-size: clamp(1.75rem, 5vw, 2.4rem); line-height: 1.25; margin: 0 0 16px; letter-spacing: -0.02em; }
+.hero h1 { font-family: var(--sans); font-size: clamp(1.75rem, 5vw, 2.4rem); line-height: 1.25; margin: 0 0 16px; letter-spacing: -0.02em; }
 .hero p { color: var(--muted); margin: 0 0 12px; }
 .hero figure { margin: 0; }
 .hero img { border-radius: 10px; display: block; width: 100%; }
@@ -124,7 +124,7 @@ dl.contact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 
 /* People */
 .pi { display: grid; grid-template-columns: 180px 1fr; gap: 32px; align-items: start; }
-.pi h3 { font-family: var(--serif); font-size: 1.5rem; margin: 0; }
+.pi h3 { font-family: var(--sans); font-size: 1.5rem; margin: 0; }
 .pi .pi-en { font-weight: 400; color: var(--muted); font-size: 1rem; }
 .pi .role { color: var(--muted); margin: 4px 0 16px; }
 .pi-bio h4 { font-size: 0.95rem; margin: 18px 0 8px; color: var(--accent); }
@@ -135,7 +135,7 @@ dl.contact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 /* Avatar */
 .avatar { width: 100%; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: var(--accent-soft); }
 .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.avatar-ph { display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.6rem; color: var(--accent); }
+.avatar-ph { display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-size: 1.6rem; color: var(--accent); }
 .pi .avatar { width: 180px; height: 180px; }
 /* 교수 사진: 잘리지 않게 원본 비율로 */
 .pi-photo { width: 180px; height: auto; border-radius: 10px; display: block; background: var(--accent-soft); }
@@ -186,7 +186,7 @@ th { color: var(--muted); font-weight: 500; }
   flex: 1; min-width: 220px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px;
   font: inherit; background: var(--surface); color: var(--ink);
 }
-.year { font-family: var(--serif); font-size: 1.2rem; margin: 36px 0 8px; color: var(--accent); }
+.year { font-family: var(--sans); font-size: 1.2rem; margin: 36px 0 8px; color: var(--accent); }
 ol.pubs { margin: 0; padding-left: 0; list-style: none; counter-reset: none; }
 ol.pubs li { padding: 10px 0 10px 56px; border-bottom: 1px solid var(--line); position: relative; }
 ol.pubs li::before {
@@ -228,7 +228,7 @@ ol.pubs li::before {
 /* 첨부(PDF)가 없는 글은 내용 크기만큼만 */
 .modal:not(.has-pdf) .modal-box { max-height: 80vh; }
 .modal-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 18px 20px; border-bottom: 1px solid var(--line); }
-.modal-head h3 { margin: 0; font-size: 1.05rem; font-family: var(--serif); }
+.modal-head h3 { margin: 0; font-size: 1.05rem; font-family: var(--sans); }
 .modal-head time { color: var(--muted); font-size: 0.85rem; }
 .modal-x { border: 0; background: transparent; font-size: 1.6rem; line-height: 1; cursor: pointer; color: var(--muted); padding: 0 4px; }
 .modal-x:hover { color: var(--ink); }
@@ -254,7 +254,7 @@ ol.pubs li::before {
 #gate-modal[hidden] { display: none; }
 .gate-back { position: absolute; inset: 0; background: rgba(20, 25, 28, 0.55); }
 .gate-box { position: relative; background: var(--surface); border-radius: 12px; padding: 24px; width: min(360px, 100%); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
-.gate-box h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 1.15rem; }
+.gate-box h3 { margin: 0 0 8px; font-family: var(--sans); font-size: 1.15rem; }
 .gate-box p { margin: 0 0 14px; color: var(--muted); font-size: 0.9rem; }
 .gate-box input { width: 100%; font: inherit; font-size: 1rem; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; }
 .gate-err { color: #c0392b !important; margin: 8px 0 0 !important; }
