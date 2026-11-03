@@ -312,18 +312,20 @@ def page(path, title, active, body, extra_head="", script=""):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{{var s=localStorage.getItem('cclab-skin');if(s)document.documentElement.setAttribute('data-skin',s);}}catch(e){{}}</script>
 <title>{e(title)}</title>
 <meta name="description" content="강원대학교 화학과 전산화학연구실 (Computational Chemistry Lab, Kangwon National University)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;700&family=Space+Grotesk:wght@500;600;700&family=Archivo:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{root}assets/highlight/github.min.css">
-<link rel="stylesheet" href="{root}assets/style.css">{extra_head}
+<link rel="stylesheet" href="{root}assets/style.css">
+<link rel="stylesheet" href="{root}assets/skins.css">{extra_head}
 </head>
 <body>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="" aria-label="CCLab@KNU"><img class="brand-logo" src="/assets/images/r2-01.svg" alt="CCLab@KNU"></a>
+    <a class="brand" href="{root}" aria-label="CCLab@KNU">{BRAND_INNER}</a>
     <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
     <nav class="nav" id="nav">{nav}</nav>
   </div>
@@ -343,7 +345,8 @@ def page(path, title, active, body, extra_head="", script=""):
 <script src="{root}assets/highlight/highlight.min.js" defer></script>
 <script src="{root}assets/highlight/languages/fortran.min.js" defer></script>
 <script src="{root}assets/highlight/languages/matlab.min.js" defer></script>
-<script src="{root}assets/hl-init.js" defer></script>{script}
+<script src="{root}assets/hl-init.js" defer></script>
+<script src="{root}assets/skin-switcher.js" defer></script>{script}
 </body>
 </html>
 """
@@ -369,6 +372,21 @@ def news_items(items):
 # ---------------------------------------------------------------- Home
 _home_path = os.path.join(CONTENT, "pages/home.md")
 hm = parse_md(_home_path)[0] if os.path.exists(_home_path) else {}
+
+# ---- 사이트 설정(헤더 로고 등) : content/pages/site.md (CMS 편집) ----
+_site_path = os.path.join(CONTENT, "pages/site.md")
+_site = parse_md(_site_path)[0] if os.path.exists(_site_path) else {}
+_logo = str(_site.get("logo") or "").strip()
+_logo_dark = str(_site.get("logo_dark") or "").strip()
+_brand_text = str(_site.get("brand_text") or "").strip()
+if _logo:
+    BRAND_INNER = f'<img class="brand-logo" src="{asset_url(_logo)}" alt="CCLab@KNU">'
+    if _logo_dark:
+        BRAND_INNER += f'<img class="brand-logo brand-logo-dark" src="{asset_url(_logo_dark)}" alt="CCLab@KNU">'
+elif _brand_text:
+    BRAND_INNER = f'<b>{e(_brand_text)}</b>'
+else:
+    BRAND_INNER = '<b>CCLab<span>@</span>KNU</b><small>강원대학교 화학과 전산화학연구실</small>'
 
 
 def _h(k, d=""):

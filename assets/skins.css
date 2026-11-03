@@ -1,0 +1,205 @@
+/* =====================================================================
+   CCLab@KNU — 디자인 스킨 (방문자 전환용)
+   ---------------------------------------------------------------------
+   원본 디자인은 style.css 그대로. 아래는 <html data-skin="x"> 일 때만
+   적용되는 "껍데기(색·폰트·헤더·카드·히어로)" 오버라이드입니다.
+   내용(HTML/본문)은 전혀 바꾸지 않으므로 모든 페이지에 안전하게 적용됩니다.
+
+     (없음) = 원본
+     a = Aurora  | c = Vivid  | d = Grid  | e = Soft  | f = Mono
+   스킨 추가/수정은 이 파일만 고치면 됩니다.
+   ===================================================================== */
+
+/* ---- 공통: 히어로 장식 레이어 & 로고 스왑 ---------------------------- */
+.skin-net{ display:none; position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.skin-blob{ display:none; }
+html[data-skin] .hero > div,
+html[data-skin] .hero > figure{ position:relative; z-index:1; }
+.brand-logo-dark{ display:none; }
+
+/* 디자인 전환 메뉴(접이식) — 좌하단 */
+#skin-switch{ position:fixed; left:14px; bottom:14px; z-index:65; font-family:var(--sans); }
+#skin-switch .ss-toggle{
+  display:inline-flex; align-items:center; gap:7px; cursor:pointer;
+  background:var(--surface); border:1px solid var(--line); border-radius:999px;
+  padding:7px 14px 7px 12px; font-size:.82rem; color:var(--muted);
+  box-shadow:0 2px 12px rgba(0,0,0,.12); user-select:none;
+}
+#skin-switch .ss-toggle:hover{ color:var(--ink); }
+#skin-switch .ss-toggle .dot{ width:12px; height:12px; border-radius:50%;
+  background:conic-gradient(#0e5a61,#ff6a4d,#16a085,#2ff3e0,#d8452f,#0e5a61); }
+#skin-switch .ss-panel{
+  position:absolute; left:0; bottom:calc(100% + 10px); width:230px;
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  box-shadow:0 14px 40px rgba(0,0,0,.2); padding:10px; display:none;
+}
+#skin-switch.open .ss-panel{ display:block; }
+#skin-switch .ss-title{ font-size:.72rem; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted); padding:4px 8px 8px; }
+#skin-switch .ss-opt{ display:flex; align-items:center; gap:10px; width:100%;
+  background:none; border:0; border-radius:9px; padding:9px 10px; cursor:pointer;
+  font:inherit; font-size:.9rem; color:var(--ink); text-align:left; }
+#skin-switch .ss-opt:hover{ background:var(--accent-soft); }
+#skin-switch .ss-opt .sw{ width:22px; height:22px; border-radius:6px; border:1px solid var(--line); flex:none; }
+#skin-switch .ss-opt[aria-checked="true"]{ background:var(--accent-soft); font-weight:600; }
+#skin-switch .ss-opt[aria-checked="true"] .sw{ outline:2px solid var(--accent); outline-offset:1px; }
+#skin-switch .sw.s0{ background:#fbfaf7; }
+#skin-switch .sw.sa{ background:linear-gradient(135deg,#0e5a61,#ff6a4d); }
+#skin-switch .sw.sc{ background:linear-gradient(135deg,#ff5636,#0e5a61); }
+#skin-switch .sw.sd{ background:linear-gradient(135deg,#fcfcfb 50%,#d8452f 50%); }
+#skin-switch .sw.se{ background:linear-gradient(135deg,#16a085,#ff9d7a); }
+#skin-switch .sw.sf{ background:linear-gradient(135deg,#090d11,#2ff3e0); }
+@media print{ #skin-switch{ display:none !important; } }
+
+/* =====================================================================
+   A — AURORA : 라이트 본문 + 다크 분자 히어로 · 틸/코랄 · Space Grotesk
+   ===================================================================== */
+html[data-skin="a"]{
+  --bg:#f6f9f9; --surface:#ffffff; --ink:#132026; --muted:#566b73; --line:#e2ecee;
+  --accent:#0e5a61; --accent-soft:#e3f0f1; --accent2:#ff6a4d;
+  --display:"Space Grotesk","Noto Sans KR",sans-serif;
+}
+html[data-skin="a"] h1,html[data-skin="a"] h2,html[data-skin="a"] h3,
+html[data-skin="a"] .page-title,html[data-skin="a"] .brand b,
+html[data-skin="a"] .year,html[data-skin="a"] .card h2{ font-family:var(--display); letter-spacing:-.01em; }
+html[data-skin="a"] .eyebrow{ color:var(--accent2); }
+html[data-skin="a"] .card{ border-radius:16px; transition:transform .25s,box-shadow .25s; }
+html[data-skin="a"] .card:hover{ transform:translateY(-3px); box-shadow:0 18px 40px -24px rgba(9,52,58,.45); }
+html[data-skin="a"] .nav a.active{ background:var(--accent); }
+html[data-skin="a"] .tag,html[data-skin="a"] .pdf-link{ border-radius:999px; }
+/* 다크 히어로 밴드 */
+html[data-skin="a"] .hero{
+  background:radial-gradient(900px 400px at 80% -20%,rgba(255,106,77,.25),transparent 60%),
+             linear-gradient(140deg,#0b3a43,#0e5a61 48%,#06202b);
+  color:#fff; border-radius:20px; padding:clamp(28px,5vw,48px); overflow:hidden; position:relative;
+}
+html[data-skin="a"] .hero .eyebrow{ color:#ff8368; }
+html[data-skin="a"] .hero p{ color:rgba(255,255,255,.86); }
+html[data-skin="a"] .hero a{ color:#ff8368; }
+html[data-skin="a"] .hero img{ border-radius:12px; }
+html[data-skin="a"] .skin-net{ display:block; opacity:.85; }
+
+/* =====================================================================
+   C — VIVID : 굵은 타이포 · 코랄 히어로 블록 · Archivo
+   ===================================================================== */
+html[data-skin="c"]{
+  --bg:#ffffff; --surface:#f6f8f8; --ink:#101819; --muted:#566566; --line:#e6ecec;
+  --accent:#0e5a61; --accent-soft:#e2f0f0; --accent2:#ff5636;
+  --display:"Archivo","Noto Sans KR",sans-serif;
+}
+html[data-skin="c"] h1,html[data-skin="c"] h2,html[data-skin="c"] h3,
+html[data-skin="c"] .page-title,html[data-skin="c"] .brand b,
+html[data-skin="c"] .year,html[data-skin="c"] .card h2{ font-family:var(--display); font-weight:800; letter-spacing:-.02em; }
+html[data-skin="c"] .page-title,html[data-skin="c"] .hero h1{ font-weight:900; }
+html[data-skin="c"] .brand b span{ color:var(--accent2); }
+html[data-skin="c"] .eyebrow{ color:var(--accent2); }
+html[data-skin="c"] .card{ border-radius:18px; border-width:2px; }
+html[data-skin="c"] .nav a.active{ background:var(--accent); }
+html[data-skin="c"] .nav a:hover{ background:var(--accent-soft); }
+/* 코랄 히어로 블록 */
+html[data-skin="c"] .hero{
+  background:linear-gradient(150deg,#ff6a4d,#e8421f); color:#fff;
+  border-radius:24px; padding:clamp(30px,5vw,52px); position:relative; overflow:hidden;
+}
+html[data-skin="c"] .hero .eyebrow{ color:#fff; opacity:.9; }
+html[data-skin="c"] .hero p{ color:rgba(255,255,255,.92); }
+html[data-skin="c"] .hero a{ color:#fff; text-decoration:underline; }
+html[data-skin="c"] .hero img{ border-radius:16px; }
+
+/* =====================================================================
+   D — GRID : 스위스 그리드 · 모노 라벨 · IBM Plex · 격자 배경
+   ===================================================================== */
+html[data-skin="d"]{
+  --bg:#fcfcfb; --surface:#ffffff; --ink:#11161a; --muted:#59636b; --line:#e2e6e9;
+  --accent:#0e5a61; --accent-soft:#e3efef; --accent2:#d8452f;
+  --sans:"IBM Plex Sans KR","IBM Plex Sans",-apple-system,"Malgun Gothic",sans-serif;
+  --display:"IBM Plex Sans KR","IBM Plex Sans",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:48px 48px; background-position:center top;
+}
+html[data-skin="d"] body{ background:transparent; }
+html[data-skin="d"] .eyebrow,html[data-skin="d"] .year,
+html[data-skin="d"] .news-list time,html[data-skin="d"] .post-head time{ font-family:var(--mono); }
+html[data-skin="d"] .eyebrow{ color:var(--accent2); letter-spacing:.1em; }
+html[data-skin="d"] h1,html[data-skin="d"] h2,html[data-skin="d"] h3,
+html[data-skin="d"] .page-title,html[data-skin="d"] .brand b{ font-family:var(--display); letter-spacing:-.015em; }
+html[data-skin="d"] .brand small{ font-family:var(--mono); font-size:.6rem; letter-spacing:.06em; }
+html[data-skin="d"] .card{ border-radius:4px; }
+html[data-skin="d"] .member,html[data-skin="d"] .alum,html[data-skin="d"] .gallery figure{ border-radius:4px; }
+html[data-skin="d"] .nav a{ border-radius:4px; font-family:var(--mono); font-size:.84rem; }
+html[data-skin="d"] .nav a.active{ background:var(--accent); }
+html[data-skin="d"] .site-header{ background:rgba(252,252,251,.9); backdrop-filter:blur(6px); }
+html[data-skin="d"] .hero{ border-left:3px solid var(--accent2); padding-left:clamp(16px,3vw,26px); }
+html[data-skin="d"] .hero h1 .hl,html[data-skin="d"] .hero h1{ }
+
+/* =====================================================================
+   E — SOFT : 둥근 · 파스텔 민트/피치 · Nunito · 블롭
+   ===================================================================== */
+html[data-skin="e"]{
+  --bg:#eef8f4; --surface:#ffffff; --ink:#143a35; --muted:#5c7b74; --line:#dcefe8;
+  --accent:#16a085; --accent-soft:#d9f0e9; --accent2:#f07d55;
+  --display:"Nunito","Noto Sans KR",sans-serif;
+}
+html[data-skin="e"] h1,html[data-skin="e"] h2,html[data-skin="e"] h3,
+html[data-skin="e"] .page-title,html[data-skin="e"] .brand b,
+html[data-skin="e"] .year,html[data-skin="e"] .card h2{ font-family:var(--display); font-weight:800; }
+html[data-skin="e"] .eyebrow{ color:var(--accent2); }
+html[data-skin="e"] .card{ border-radius:24px; border-color:transparent; box-shadow:0 18px 38px -26px rgba(16,125,108,.45); }
+html[data-skin="e"] .member{ border-radius:18px; border-color:transparent; box-shadow:0 12px 26px -22px rgba(16,125,108,.5); }
+html[data-skin="e"] .alum,html[data-skin="e"] .gallery figure,html[data-skin="e"] .note{ border-radius:18px; }
+html[data-skin="e"] .nav a.active{ background:var(--accent); }
+html[data-skin="e"] .btn,html[data-skin="e"] .btn-ghost,html[data-skin="e"] .tag,
+html[data-skin="e"] .pub-tools input,html[data-skin="e"] .wform input,html[data-skin="e"] .wform select{ border-radius:999px; }
+html[data-skin="e"] .site-header{ background:rgba(238,248,244,.86); backdrop-filter:blur(8px); border-bottom-color:transparent; }
+/* 부드러운 블롭 히어로 */
+html[data-skin="e"] .hero{ background:var(--surface); border-radius:28px; padding:clamp(28px,5vw,48px); position:relative; overflow:hidden; box-shadow:0 24px 50px -30px rgba(16,125,108,.5); }
+html[data-skin="e"] .skin-blob{ display:block; position:absolute; border-radius:50%; filter:blur(48px); opacity:.5; z-index:0; }
+html[data-skin="e"] .skin-blob.b1{ width:260px; height:260px; background:#ff9d7a; top:-70px; right:-40px; }
+html[data-skin="e"] .skin-blob.b2{ width:240px; height:240px; background:#38d3b4; bottom:-90px; left:-50px; opacity:.4; }
+
+/* =====================================================================
+   F — MONO : 다크 · 모노스페이스 · 격자 · 시안/라임 (전산/터미널)
+   ===================================================================== */
+html[data-skin="f"]{
+  --bg:#090d11; --surface:#0f151b; --ink:#e6f0ee; --muted:#828f95; --line:#1b242b;
+  --accent:#2ff3e0; --accent-soft:rgba(47,243,224,.12); --accent2:#b6ff3a;
+  --sans:"Noto Sans KR",-apple-system,"Malgun Gothic",sans-serif;
+  --display:"JetBrains Mono","Noto Sans KR",monospace;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  color-scheme:dark;
+  background-image:linear-gradient(rgba(47,243,224,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(47,243,224,.05) 1px,transparent 1px);
+  background-size:44px 44px; background-attachment:fixed;
+}
+html[data-skin="f"] body{ background:transparent; }
+html[data-skin="f"] a{ color:var(--accent); }
+html[data-skin="f"] .brand b{ font-family:var(--mono); }
+html[data-skin="f"] .brand b span{ color:var(--accent2); }
+html[data-skin="f"] .brand small{ font-family:var(--mono); color:var(--muted); }
+html[data-skin="f"] h1,html[data-skin="f"] h2,html[data-skin="f"] h3,
+html[data-skin="f"] .page-title{ font-family:var(--sans); }
+html[data-skin="f"] .eyebrow,html[data-skin="f"] .year,
+html[data-skin="f"] .news-list time,html[data-skin="f"] .post-head time{ font-family:var(--mono); color:var(--accent); }
+html[data-skin="f"] .site-header{ background:rgba(9,13,17,.82); backdrop-filter:blur(8px); }
+html[data-skin="f"] .nav a{ font-family:var(--mono); font-size:.84rem; }
+html[data-skin="f"] .nav a.active{ background:var(--accent); color:#06120f; }
+html[data-skin="f"] .nav a:hover{ background:var(--accent-soft); color:var(--ink); }
+html[data-skin="f"] .card{ border-radius:12px; }
+html[data-skin="f"] .nav-toggle span{ background:var(--accent); }
+html[data-skin="f"] .btn{ color:#06120f; }
+html[data-skin="f"] .brand-logo-dark{ display:block; }
+html[data-skin="f"] .brand:has(.brand-logo-dark) .brand-logo{ display:none; }
+/* 히어로: 격자+분자 캔버스 */
+html[data-skin="f"] .hero{ position:relative; }
+html[data-skin="f"] .skin-net{ display:block; opacity:.7; }
+/* 다크에서 밝게 하드코딩된 코드블록/표 보정 */
+html[data-skin="f"] .modal-text pre,html[data-skin="f"] .post-body pre{ background:#0c1217; border-color:#1b242b; }
+html[data-skin="f"] .modal-text code,html[data-skin="f"] .post-body code{ background:#141b22; color:#cfe; }
+html[data-skin="f"] .modal-text blockquote,html[data-skin="f"] .post-body blockquote{ background:#0e1620; border-left-color:#2ff3e0; color:#9fb3b8; }
+html[data-skin="f"] .modal-text thead th,html[data-skin="f"] .post-body thead th{ background:#121922; }
+html[data-skin="f"] .modal-body iframe{ background:#0c1217; }
+
+/* ---- 반응형: 다크/블록 히어로가 좁은 화면에서 자연스럽게 ---------- */
+@media (max-width:760px){
+  html[data-skin="a"] .hero,html[data-skin="c"] .hero,html[data-skin="e"] .hero{ padding:24px; }
+}

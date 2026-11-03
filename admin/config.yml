@@ -219,6 +219,13 @@ collections:
     media_folder: /assets/images
     public_folder: assets/images
     files:
+      - name: site
+        label: 사이트 설정 (로고)
+        file: content/pages/site.md
+        fields:
+          - { name: logo, label: 헤더 로고 (밝은 배경용), widget: image, required: false, media_folder: /assets/images, public_folder: images }
+          - { name: logo_dark, label: 헤더 로고 (어두운 배경 스킨 F용, 선택), widget: image, required: false, media_folder: /assets/images, public_folder: images }
+          - { name: brand_text, label: 로고 대신 표시할 텍스트 (로고 미설정 시), widget: string, required: false }
       - name: home
         label: 메인 페이지
         file: content/pages/home.md
