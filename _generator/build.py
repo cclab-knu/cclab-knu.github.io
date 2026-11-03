@@ -325,7 +325,7 @@ def page(path, title, active, body, extra_head="", script=""):
 <body>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="{root}" aria-label="CCLab@KNU">{BRAND_INNER}</a>
+    <a class="brand{BRAND_CLASS}" href="{root}" aria-label="CCLab@KNU">{BRAND_INNER}</a>
     <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
     <nav class="nav" id="nav">{nav}</nav>
   </div>
@@ -387,6 +387,7 @@ elif _brand_text:
     BRAND_INNER = f'<b>{e(_brand_text)}</b>'
 else:
     BRAND_INNER = '<b>CCLab<span>@</span>KNU</b><small>강원대학교 화학과 전산화학연구실</small>'
+BRAND_CLASS = " has-dark" if _logo_dark else ""
 
 
 def _h(k, d=""):
