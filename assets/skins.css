@@ -337,3 +337,63 @@ html[data-font="myeongjo"]{ --sans:"Nanum Myeongjo",serif;                 --dis
 
 /* 전환 메뉴: 펼친 쪽이 항상 위로 (다른 버튼에 가려지지 않게) */
 #skin-switch.open, #font-switch.open{ z-index:80; }
+
+/* =====================================================================
+   Hover 마이크로 인터랙션 (전 스킨 공통) — 데모 A의 생동감 복원
+   · prefers-reduced-motion 사용자는 자동 비활성
+   · 색은 토큰(--accent 등)에서 가져와 스킨별로 어울림
+   ===================================================================== */
+@media (prefers-reduced-motion: no-preference){
+  .card{ transition:transform .28s var(--ease,cubic-bezier(.2,.7,.2,1)), box-shadow .28s, border-color .28s; }
+  .card:hover{ transform:translateY(-4px); box-shadow:0 20px 42px -26px rgba(12,40,45,.42); }
+
+  .member{ transition:transform .22s var(--ease,ease), box-shadow .25s, border-color .25s; }
+  .member:hover{ transform:translateY(-3px); box-shadow:0 16px 32px -22px rgba(12,40,45,.42); border-color:var(--accent); }
+
+  .alum{ transition:transform .2s, border-color .25s, box-shadow .25s; }
+  .alum:hover{ transform:translateY(-2px); border-color:var(--accent); }
+
+  .gallery figure{ transition:transform .28s var(--ease,ease), box-shadow .28s; }
+  .gallery figure:hover{ transform:translateY(-3px); box-shadow:0 18px 36px -24px rgba(12,40,45,.45); }
+  .gallery img{ transition:transform .5s var(--ease,ease); }
+  .gallery figure:hover img{ transform:scale(1.06); }
+
+  .news-list li{ transition:padding-left .25s var(--ease,ease), color .2s; border-radius:6px; }
+  .news-list li:hover{ padding-left:8px; color:var(--accent); }
+
+  ol.pubs li{ transition:background .2s, padding-left .2s; border-radius:6px; }
+  ol.pubs li:hover{ background:var(--accent-soft); }
+
+  .post{ transition:padding-left .25s var(--ease,ease); }
+  .post:hover{ padding-left:6px; }
+
+  .btn, .btn-ghost{ transition:transform .2s, opacity .2s, background .2s, box-shadow .25s; }
+  .btn:hover{ transform:translateY(-2px); box-shadow:0 12px 24px -12px var(--accent); }
+  .btn-ghost:hover{ transform:translateY(-2px); }
+
+  .more, .hero a, .arch-link, dl.contact a{ display:inline-block; transition:transform .2s, color .2s; }
+  .more:hover, .hero a:hover, .arch-link:hover{ transform:translateX(3px); }
+
+  .pdf-link, .tag{ transition:transform .2s, opacity .2s; }
+  .pdf-link:hover{ transform:translateY(-1px); opacity:.9; }
+
+  .pi-photo, .pi .avatar{ transition:transform .35s var(--ease,ease), box-shadow .35s; }
+  .pi:hover .pi-photo, .pi:hover .avatar{ transform:translateY(-3px); box-shadow:0 18px 34px -24px rgba(12,40,45,.45); }
+
+  .lang-toggle button{ transition:background .2s, color .2s; }
+
+  /* D(그리드): 투명 카드/셀에는 떠오름 대신 색 강조만 */
+  html[data-skin="d"] .grid-2 .card:hover{ transform:none; box-shadow:none; }
+  html[data-skin="d"] .member:hover{ transform:none; box-shadow:none; background:var(--accent-soft); }
+
+  /* A(Aurora): 카드 상단 그라데이션 바 + 내비 밑줄 슬라이드 */
+  html[data-skin="a"] .grid-2 .card{ position:relative; overflow:hidden; }
+  html[data-skin="a"] .grid-2 .card::after{ content:""; position:absolute; left:0; top:0; height:3px; width:100%;
+    background:linear-gradient(90deg,var(--accent),var(--accent2)); transform:scaleX(0); transform-origin:left;
+    transition:transform .4s var(--ease,cubic-bezier(.2,.7,.2,1)); }
+  html[data-skin="a"] .grid-2 .card:hover::after{ transform:scaleX(1); }
+  html[data-skin="a"] .nav a{ position:relative; }
+  html[data-skin="a"] .nav a:not(.active)::after{ content:""; position:absolute; left:12px; right:12px; bottom:3px; height:2px;
+    background:var(--accent2); transform:scaleX(0); transform-origin:left; transition:transform .25s var(--ease,ease); }
+  html[data-skin="a"] .nav a:not(.active):hover::after{ transform:scaleX(1); }
+}
