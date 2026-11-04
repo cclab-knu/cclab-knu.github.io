@@ -237,7 +237,6 @@ collections:
           - { name: office_prof, label: 교수연구실, widget: string }
           - { name: office_student, label: 학생연구실, widget: string }
           - { name: tel, label: TEL, widget: string }
-          - { name: fax, label: FAX, widget: string }
           - { name: email, label: Email, widget: string }
           - { name: mailing, label: Mailing Address, widget: text }
       - name: research_ko

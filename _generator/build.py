@@ -424,7 +424,6 @@ home = f"""
       <dt>교수연구실</dt><dd>{_h("office_prof", "자연대1호관 309호")}</dd>
       <dt>학생연구실</dt><dd>{_h("office_student", "자연대1호관 308호")}</dd>
       <dt>TEL</dt><dd>{_h("tel", "+82-33-250-8497 (교수연구실)")}</dd>
-      <dt>FAX</dt><dd>{_h("fax", "+82-33-259-5667 (과사무실)")}</dd>
       <dt>Email</dt><dd><a href="mailto:{_h("email", "hhwang@kangwon.ac.kr")}">{e(_h("email", "hhwang@kangwon.ac.kr"))}</a></dd>
     </dl>
     <h3>Mailing Address</h3>

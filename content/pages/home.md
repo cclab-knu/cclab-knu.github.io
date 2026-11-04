@@ -6,7 +6,6 @@ address: (24341) 강원특별자치도 춘천시 강원대학길 1<br>강원대�
 office_prof: 자연대1호관 309호
 office_student: 자연대1호관 308호
 tel: +82-33-250-8497 (교수연구실)
-fax: +82-33-259-5667 (과사무실)
 email: hhwang@kangwon.ac.kr
 mailing: Department of Chemistry, Kangwon National University<br>1 Kangwondaehak-gil, Chuncheon, Gangwon-do 24341, Republic of Korea
 title: Home
