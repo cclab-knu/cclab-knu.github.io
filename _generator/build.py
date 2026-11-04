@@ -312,7 +312,7 @@ def page(path, title, active, body, extra_head="", script=""):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>try{{var d=document.documentElement,s=localStorage.getItem('cclab-skin'),f=localStorage.getItem('cclab-font');if(s)d.setAttribute('data-skin',s);if(f)d.setAttribute('data-font',f);}}catch(e){{}}</script>
+<script>try{{var d=document.documentElement,s=localStorage.getItem('cclab-skin'),f=localStorage.getItem('cclab-font');if(s)d.setAttribute('data-skin',s);if(f)d.setAttribute('data-font',f);if(!matchMedia('(prefers-reduced-motion: reduce)').matches){{d.classList.add('js-reveal');window.__rvf=setTimeout(function(){{try{{d.classList.remove('js-reveal');}}catch(_){{}}}},3000);}}}}catch(e){{}}</script>
 <title>{e(title)}</title>
 <meta name="description" content="강원대학교 화학과 전산화학연구실 (Computational Chemistry Lab, Kangwon National University)">
 <link rel="preconnect" href="https://fonts.googleapis.com">

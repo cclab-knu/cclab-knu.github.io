@@ -202,3 +202,33 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", ready);
   else ready();
 })();
+
+/* =====================================================================
+   히어로 장식 블롭 주입 (E·C 스킨에서 CSS로 표시) + 스크롤 등장 애니메이션
+   ===================================================================== */
+(function () {
+  "use strict";
+  // 1) 히어로에 블롭 2개 주입(기본 숨김, 스킨 CSS가 표시)
+  var hero = document.querySelector(".hero");
+  if (hero && !hero.querySelector(".skin-blob")) {
+    ["b1", "b2"].forEach(function (c) {
+      var s = document.createElement("span");
+      s.className = "skin-blob " + c;
+      s.setAttribute("aria-hidden", "true");
+      hero.insertBefore(s, hero.firstChild);
+    });
+  }
+
+  // 2) 스크롤 등장: head 가 js-reveal 을 켠 경우에만(= '동작 줄이기' 아님)
+  var d = document.documentElement;
+  try { clearTimeout(window.__rvf); } catch (e) {}          // 안전장치 타이머 해제
+  if (!d.classList.contains("js-reveal")) return;
+  var SEL = ".hero, main .card, .topic, .post, .board, .pi, .members .member, " +
+            ".alumni .alum, .gallery figure, .page-title, .page-lead, .note, .year, ol.pubs";
+  var els = [].slice.call(document.querySelectorAll(SEL));
+  if (!("IntersectionObserver" in window) || !els.length) { d.classList.remove("js-reveal"); return; }
+  var io = new IntersectionObserver(function (ents) {
+    ents.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+  }, { threshold: 0.06, rootMargin: "0px 0px -4% 0px" });
+  els.forEach(function (el) { io.observe(el); });
+})();

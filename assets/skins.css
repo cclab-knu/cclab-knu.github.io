@@ -398,6 +398,47 @@ html[data-font="myeongjo"]{ --sans:"Nanum Myeongjo",serif;                 --dis
   html[data-skin="a"] .nav a:not(.active):hover::after{ transform:scaleX(1); }
 }
 
+/* =====================================================================
+   앰비언트 애니메이션 — 스크롤 등장(공통) + 스킨별 배경 모션
+   · js-reveal 은 head 인라인에서 '동작 줄이기'가 아닐 때만 부여됨
+   · 등장 요소는 js-reveal 일 때만 숨겼다가 .in 으로 나타남(내용 숨김 방지)
+   ===================================================================== */
+html.js-reveal .hero,
+html.js-reveal main .card,
+html.js-reveal .topic,
+html.js-reveal .post,
+html.js-reveal .board,
+html.js-reveal .pi,
+html.js-reveal .members .member,
+html.js-reveal .alumni .alum,
+html.js-reveal .gallery figure,
+html.js-reveal .page-title,
+html.js-reveal .page-lead,
+html.js-reveal .note,
+html.js-reveal .year,
+html.js-reveal ol.pubs{
+  opacity:0; transform:translateY(18px);
+  transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1);
+}
+html.js-reveal .in{ opacity:1 !important; transform:none !important; }
+
+/* C · Vivid : 히어로 그라데이션이 천천히 흐르고 포인트가 떠다님 */
+html[data-skin="c"] .hero{ background-size:200% 200%; animation:cFlow 16s ease-in-out infinite; }
+@keyframes cFlow{ 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+html[data-skin="c"] .skin-blob{ display:block; position:absolute; border-radius:50%; filter:blur(52px); opacity:.26; z-index:0; }
+html[data-skin="c"] .skin-blob.b1{ width:300px; height:300px; background:#ffb48a; top:-90px; right:6%; animation:cFloat 12s ease-in-out infinite; }
+html[data-skin="c"] .skin-blob.b2{ width:260px; height:260px; background:#b8433a; bottom:-110px; left:4%; animation:cFloat 15s ease-in-out infinite reverse; }
+@keyframes cFloat{ 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(22px,-16px) scale(1.12)} }
+
+/* D · Grid : 격자 배경이 아주 천천히 흐름 */
+html[data-skin="d"]{ animation:dGrid 12s linear infinite; }
+@keyframes dGrid{ from{background-position:0 0} to{background-position:48px 48px} }
+
+/* E · Soft : 블롭이 둥실둥실 떠다니고 커졌다 작아짐 */
+html[data-skin="e"] .skin-blob.b1{ animation:eFloat 12s ease-in-out infinite; }
+html[data-skin="e"] .skin-blob.b2{ animation:eFloat 15s ease-in-out infinite reverse; }
+@keyframes eFloat{ 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(20px,16px) scale(1.14)} }
+
 /* '동작 줄이기' 사용자: 애니메이션/전환을 즉시로(hover 상태 변화 자체는 유지) */
 @media (prefers-reduced-motion: reduce){
   *, *::before, *::after{
