@@ -102,7 +102,7 @@ html[data-skin="c"] .nav a.active{ background:var(--accent); }
 html[data-skin="c"] .nav a:hover{ background:var(--accent-soft); }
 /* 코랄 히어로 블록 */
 html[data-skin="c"] .hero{
-  background:linear-gradient(150deg,#ff6a4d,#e8421f); color:#fff;
+  background:linear-gradient(150deg,#d17d3a,#e8421f,#9c3350); color:#fff;
   border-radius:24px; padding:clamp(30px,5vw,52px); position:relative; overflow:hidden;
 }
 html[data-skin="c"] .hero .eyebrow{ color:#fff; opacity:.9; }
