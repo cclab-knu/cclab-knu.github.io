@@ -312,12 +312,12 @@ def page(path, title, active, body, extra_head="", script=""):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>try{{var s=localStorage.getItem('cclab-skin');if(s)document.documentElement.setAttribute('data-skin',s);}}catch(e){{}}</script>
+<script>try{{var d=document.documentElement,s=localStorage.getItem('cclab-skin'),f=localStorage.getItem('cclab-font');if(s)d.setAttribute('data-skin',s);if(f)d.setAttribute('data-font',f);}}catch(e){{}}</script>
 <title>{e(title)}</title>
 <meta name="description" content="강원대학교 화학과 전산화학연구실 (Computational Chemistry Lab, Kangwon National University)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;700&family=Space+Grotesk:wght@500;600;700&family=Archivo:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Gothic+A1:wght@400;500;700;900&family=Jua&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Gowun+Dodum&family=Nanum+Gothic+Coding:wght@400;700&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{root}assets/highlight/github.min.css">
 <link rel="stylesheet" href="{root}assets/style.css">
 <link rel="stylesheet" href="{root}assets/skins.css">{extra_head}

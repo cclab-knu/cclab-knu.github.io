@@ -134,3 +134,71 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", ready);
   else ready();
 })();
+
+/* =====================================================================
+   폰트 선택 메뉴 (방문자) — 디자인 선택과 별개. 기본값 = '디자인 기본'
+   ===================================================================== */
+(function () {
+  "use strict";
+  var FONTS = [
+    ["",         "디자인 기본", ""],
+    ["noto",     "Noto Sans KR", "'Noto Sans KR',sans-serif"],
+    ["gothica1", "Gothic A1",    "'Gothic A1','Noto Sans KR',sans-serif"],
+    ["jua",      "Jua",          "'Jua','Noto Sans KR',sans-serif"],
+    ["plex",     "IBM Plex Sans KR", "'IBM Plex Sans KR',sans-serif"],
+    ["gowun",    "Gowun Dodum",  "'Gowun Dodum','Noto Sans KR',sans-serif"],
+    ["coding",   "Nanum Gothic Coding", "'Nanum Gothic Coding',monospace"],
+    ["myeongjo", "Nanum Myeongjo", "'Nanum Myeongjo',serif"]
+  ];
+  var KEY = "cclab-font";
+  var root = document.documentElement;
+  function current() { return root.getAttribute("data-font") || ""; }
+  function save(v) { try { if (v) localStorage.setItem(KEY, v); else localStorage.removeItem(KEY); } catch (e) {} }
+  function apply(v) { if (v) root.setAttribute("data-font", v); else root.removeAttribute("data-font"); save(v); mark(); }
+
+  var box = document.createElement("div");
+  box.id = "font-switch";
+  box.innerHTML =
+    '<button class="ss-toggle" aria-expanded="false" aria-controls="font-panel" title="글꼴 선택">' +
+      '<span class="fi">Aa</span><span class="ss-cur">글꼴</span></button>' +
+    '<div class="ss-panel" id="font-panel" role="radiogroup" aria-label="글꼴">' +
+      '<div class="ss-title">글꼴 선택</div>' +
+      FONTS.map(function (f) {
+        var style = f[2] ? ' style="font-family:' + f[2] + '"' : '';
+        return '<button class="ss-opt" role="radio" data-font="' + f[0] + '" aria-checked="false"' + style + '>' +
+          '<span>' + f[1] + '</span>' + (f[0] ? '' : '<span class="ko">자동</span>') + '</button>';
+      }).join("") +
+    '</div>';
+
+  function mark() {
+    var c = current();
+    box.querySelectorAll(".ss-opt").forEach(function (b) {
+      b.setAttribute("aria-checked", b.getAttribute("data-font") === c ? "true" : "false");
+    });
+    var cur = box.querySelector(".ss-cur");
+    if (cur) cur.textContent = FONTS.reduce(function (a, f) { return f[0] === c ? f[1] : a; }, "글꼴");
+  }
+
+  function ready() {
+    document.body.appendChild(box);
+    var toggle = box.querySelector(".ss-toggle");
+    toggle.addEventListener("click", function () {
+      var open = box.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    box.querySelectorAll(".ss-opt").forEach(function (b) {
+      b.addEventListener("click", function () {
+        apply(b.getAttribute("data-font"));
+        box.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+    document.addEventListener("click", function (e) {
+      if (!box.contains(e.target)) { box.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); }
+    });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") box.classList.remove("open"); });
+    mark();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", ready);
+  else ready();
+})();

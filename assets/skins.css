@@ -57,7 +57,9 @@ html[data-skin] .hero > figure{ position:relative; z-index:1; }
 html[data-skin="a"]{
   --bg:#f6f9f9; --surface:#ffffff; --ink:#132026; --muted:#566b73; --line:#e2ecee;
   --accent:#0e5a61; --accent-soft:#e3f0f1; --accent2:#ff6a4d;
-  --display:"Space Grotesk","Noto Sans KR",sans-serif;
+  --sans:"Gothic A1","Noto Sans KR",sans-serif;
+  --display:"Gothic A1","Noto Sans KR",sans-serif;
+  --mono:"Gothic A1","Noto Sans KR",sans-serif;
 }
 html[data-skin="a"] h1,html[data-skin="a"] h2,html[data-skin="a"] h3,
 html[data-skin="a"] .page-title,html[data-skin="a"] .brand b,
@@ -85,7 +87,9 @@ html[data-skin="a"] .skin-net{ display:block; opacity:.85; }
 html[data-skin="c"]{
   --bg:#ffffff; --surface:#f6f8f8; --ink:#101819; --muted:#566566; --line:#e6ecec;
   --accent:#0e5a61; --accent-soft:#e2f0f0; --accent2:#ff5636;
-  --display:"Archivo","Noto Sans KR",sans-serif;
+  --sans:"Jua","Noto Sans KR",sans-serif;
+  --display:"Jua","Noto Sans KR",sans-serif;
+  --mono:"Jua","Noto Sans KR",sans-serif;
 }
 html[data-skin="c"] h1,html[data-skin="c"] h2,html[data-skin="c"] h3,
 html[data-skin="c"] .page-title,html[data-skin="c"] .brand b,
@@ -114,7 +118,7 @@ html[data-skin="d"]{
   --accent:#0e5a61; --accent-soft:#e3efef; --accent2:#d8452f;
   --sans:"IBM Plex Sans KR","IBM Plex Sans",-apple-system,"Malgun Gothic",sans-serif;
   --display:"IBM Plex Sans KR","IBM Plex Sans",sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --mono:"IBM Plex Sans KR","IBM Plex Sans",sans-serif;
   background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
   background-size:48px 48px; background-position:center top;
 }
@@ -139,7 +143,9 @@ html[data-skin="d"] .hero h1 .hl,html[data-skin="d"] .hero h1{ }
 html[data-skin="e"]{
   --bg:#eef8f4; --surface:#ffffff; --ink:#143a35; --muted:#5c7b74; --line:#dcefe8;
   --accent:#16a085; --accent-soft:#d9f0e9; --accent2:#f07d55;
-  --display:"Nunito","Noto Sans KR",sans-serif;
+  --sans:"Gowun Dodum","Noto Sans KR",sans-serif;
+  --display:"Gowun Dodum","Noto Sans KR",sans-serif;
+  --mono:"Gowun Dodum","Noto Sans KR",sans-serif;
 }
 html[data-skin="e"] h1,html[data-skin="e"] h2,html[data-skin="e"] h3,
 html[data-skin="e"] .page-title,html[data-skin="e"] .brand b,
@@ -164,9 +170,9 @@ html[data-skin="e"] .skin-blob.b2{ width:240px; height:240px; background:#38d3b4
 html[data-skin="f"]{
   --bg:#090d11; --surface:#0f151b; --ink:#e6f0ee; --muted:#828f95; --line:#1b242b;
   --accent:#2ff3e0; --accent-soft:rgba(47,243,224,.12); --accent2:#b6ff3a;
-  --sans:"Noto Sans KR",-apple-system,"Malgun Gothic",sans-serif;
-  --display:"JetBrains Mono","Noto Sans KR",monospace;
-  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --sans:"Nanum Gothic Coding","Noto Sans KR",monospace;
+  --display:"Nanum Gothic Coding","Noto Sans KR",monospace;
+  --mono:"Nanum Gothic Coding","Noto Sans KR",monospace;
   color-scheme:dark;
   background-image:linear-gradient(rgba(47,243,224,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(47,243,224,.05) 1px,transparent 1px);
   background-size:44px 44px; background-attachment:fixed;
@@ -294,3 +300,37 @@ html[data-skin="a"] .hero p,html[data-skin="c"] .hero p{ font-size:clamp(1rem,1.
    - 다크 로고가 없으면 밝은 로고를 흰색으로 반전해 항상 보이게 */
 html[data-skin="f"] .brand:has(.brand-logo-dark) .brand-logo:not(.brand-logo-dark){ display:none; }
 html[data-skin="f"] .brand:not(.has-dark):not(:has(.brand-logo-dark)) .brand-logo{ filter:brightness(0) invert(1); }
+
+/* =====================================================================
+   폰트 선택 (방문자) — <html data-font="x">
+   · 미선택(기본): 각 디자인의 기본 폰트 사용
+   · 선택 시: 아래 규칙이 스킨 기본 폰트보다 우선(파일 뒤쪽 = 우선)
+   · 한 폰트로 제목·본문·라벨 전부 통일
+   ===================================================================== */
+html[data-font="noto"]    { --sans:"Noto Sans KR",sans-serif;              --display:"Noto Sans KR",sans-serif;              --mono:"Noto Sans KR",sans-serif; }
+html[data-font="gothica1"]{ --sans:"Gothic A1","Noto Sans KR",sans-serif; --display:"Gothic A1","Noto Sans KR",sans-serif; --mono:"Gothic A1","Noto Sans KR",sans-serif; }
+html[data-font="jua"]     { --sans:"Jua","Noto Sans KR",sans-serif;        --display:"Jua","Noto Sans KR",sans-serif;        --mono:"Jua","Noto Sans KR",sans-serif; }
+html[data-font="plex"]    { --sans:"IBM Plex Sans KR",sans-serif;          --display:"IBM Plex Sans KR",sans-serif;          --mono:"IBM Plex Sans KR",sans-serif; }
+html[data-font="gowun"]   { --sans:"Gowun Dodum","Noto Sans KR",sans-serif;--display:"Gowun Dodum","Noto Sans KR",sans-serif;--mono:"Gowun Dodum","Noto Sans KR",sans-serif; }
+html[data-font="coding"]  { --sans:"Nanum Gothic Coding",monospace;        --display:"Nanum Gothic Coding",monospace;        --mono:"Nanum Gothic Coding",monospace; }
+html[data-font="myeongjo"]{ --sans:"Nanum Myeongjo",serif;                 --display:"Nanum Myeongjo",serif;                 --mono:"Nanum Myeongjo",serif; }
+
+/* 폰트 선택 메뉴 (디자인 선택 버튼 위에 쌓임) */
+#font-switch{ position:fixed; left:14px; bottom:58px; z-index:65; font-family:var(--sans); }
+#font-switch .ss-toggle{ display:inline-flex; align-items:center; gap:7px; cursor:pointer;
+  background:var(--surface); border:1px solid var(--line); border-radius:999px;
+  padding:7px 14px 7px 12px; font-size:.82rem; color:var(--muted);
+  box-shadow:0 2px 12px rgba(0,0,0,.12); user-select:none; }
+#font-switch .ss-toggle:hover{ color:var(--ink); }
+#font-switch .ss-toggle .fi{ font-weight:700; }
+#font-switch .ss-panel{ position:absolute; left:0; bottom:calc(100% + 10px); width:230px;
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  box-shadow:0 14px 40px rgba(0,0,0,.2); padding:10px; display:none; max-height:60vh; overflow:auto; }
+#font-switch.open .ss-panel{ display:block; }
+#font-switch .ss-title{ font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); padding:4px 8px 8px; }
+#font-switch .ss-opt{ display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%;
+  background:none; border:0; border-radius:9px; padding:9px 10px; cursor:pointer; font:inherit; font-size:.95rem; color:var(--ink); text-align:left; }
+#font-switch .ss-opt:hover{ background:var(--accent-soft); }
+#font-switch .ss-opt[aria-checked="true"]{ background:var(--accent-soft); font-weight:600; }
+#font-switch .ss-opt .ko{ color:var(--muted); font-size:.78rem; font-family:var(--sans); }
+@media print{ #font-switch{ display:none !important; } }
