@@ -334,3 +334,6 @@ html[data-font="myeongjo"]{ --sans:"Nanum Myeongjo",serif;                 --dis
 #font-switch .ss-opt[aria-checked="true"]{ background:var(--accent-soft); font-weight:600; }
 #font-switch .ss-opt .ko{ color:var(--muted); font-size:.78rem; font-family:var(--sans); }
 @media print{ #font-switch{ display:none !important; } }
+
+/* 전환 메뉴: 펼친 쪽이 항상 위로 (다른 버튼에 가려지지 않게) */
+#skin-switch.open, #font-switch.open{ z-index:80; }
