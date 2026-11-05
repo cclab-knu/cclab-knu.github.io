@@ -364,6 +364,9 @@ html[data-font="myeongjo"]{ --sans:"Nanum Myeongjo",serif;                 --dis
   ol.pubs li{ transition:background .2s, padding-left .2s; border-radius:6px; }
   ol.pubs li:hover{ background:var(--accent-soft); }
 
+  .board-head{ transition:padding-left .25s var(--ease,ease); }
+  .board-head:hover{ padding-left:12px; }
+
   .post{ transition:padding-left .25s var(--ease,ease); }
   .post:hover{ padding-left:6px; }
 
