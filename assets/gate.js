@@ -20,7 +20,7 @@
       '<div class="gate-back" data-gclose></div>' +
       '<div class="gate-box" role="dialog" aria-modal="true">' +
       '<h3>자료 열람 코드</h3>' +
-      '<p>강의에서 안내한 코드를 입력하면 자료를 볼 수 있습니다.</p>' +
+      '<p>코드를 입력하면 자료를 볼 수 있습니다.</p>' +
       '<input type="text" id="gate-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="코드 입력">' +
       '<p class="gate-err" id="gate-err" hidden>코드가 올바르지 않습니다.</p>' +
       '<div class="gate-btns"><button type="button" class="btn-ghost" data-gclose>취소</button>' +

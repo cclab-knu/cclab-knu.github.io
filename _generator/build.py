@@ -242,7 +242,7 @@ MODAL_JS = """
     function put(h) { mBody.innerHTML = h; if (window.cclabHighlight) window.cclabHighlight(mBody); }
     modal.hidden = false; document.body.style.overflow = 'hidden';
     if (file && window.cclabAsk && !window.cclabUnlocked()) {
-      put(top + '<p class="modal-note">자료를 보려면 강의에서 안내한 코드를 입력하세요.</p>');
+      put(top + '<p class="modal-note">자료를 보려면 코드를 입력하세요.</p>');
       window.cclabAsk(function () { put(top + fileHtml()); });
     } else {
       put(top + fileHtml());
