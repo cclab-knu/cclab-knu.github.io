@@ -390,16 +390,16 @@ html[data-font="myeongjo"]{ --sans:"Nanum Myeongjo",serif;                 --dis
   html[data-skin="d"] .grid-2 .card:hover{ transform:none; box-shadow:none; }
   html[data-skin="d"] .member:hover{ transform:none; box-shadow:none; background:var(--accent-soft); }
 
-  /* A(Aurora): 카드 상단 그라데이션 바 + 내비 밑줄 슬라이드 */
-  html[data-skin="a"] .grid-2 .card{ position:relative; overflow:hidden; }
-  html[data-skin="a"] .grid-2 .card::after{ content:""; position:absolute; left:0; top:0; height:3px; width:100%;
+  .grid-2 .card{ position:relative; overflow:hidden; }
+  .grid-2 .card::after{ content:""; position:absolute; left:0; top:0; height:3px; width:100%;
     background:linear-gradient(90deg,var(--accent),var(--accent2)); transform:scaleX(0); transform-origin:left;
     transition:transform .4s var(--ease,cubic-bezier(.2,.7,.2,1)); }
-  html[data-skin="a"] .grid-2 .card:hover::after{ transform:scaleX(1); }
-  html[data-skin="a"] .nav a{ position:relative; }
-  html[data-skin="a"] .nav a:not(.active)::after{ content:""; position:absolute; left:12px; right:12px; bottom:3px; height:2px;
-    background:var(--accent2); transform:scaleX(0); transform-origin:left; transition:transform .25s var(--ease,ease); }
-  html[data-skin="a"] .nav a:not(.active):hover::after{ transform:scaleX(1); }
+  .grid-2 .card:hover::after{ transform:scaleX(1); }
+  .nav a{ position:relative; }
+  .nav a:not(.active)::after{ content:""; position:absolute; left:12px; right:12px; bottom:3px; height:2px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2)); transform:scaleX(0); transform-origin:left;
+    transition:transform .4s var(--ease,cubic-bezier(.2,.7,.2,1)); }
+  .nav a:not(.active):hover::after{ transform:scaleX(1); }
 }
 
 /* =====================================================================
