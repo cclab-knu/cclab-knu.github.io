@@ -247,6 +247,7 @@ html[data-skin="e"] h2{ border-bottom:2px solid var(--accent-soft); }
 /* F : 터미널 — 섹션 제목에 '//' 접두, 카드/사진은 테두리 패널 */
 html[data-skin="f"] h2::before,
 html[data-skin="f"] .card h2::before{ content:"// "; color:var(--accent); font-family:var(--mono); }
+html[data-skin="f"] .board-head h2::before{ content:""; }
 html[data-skin="f"] .hero img{ border:1px solid var(--line); border-radius:12px; }
 html[data-skin="f"] .grid-2 .card{ background:var(--surface); }
 html[data-skin="f"] ol.pubs li::before{ font-family:var(--mono); color:var(--accent); }
