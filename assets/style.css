@@ -243,8 +243,26 @@ ol.pubs li::before {
 
 .board { margin-bottom: 20px; }
 .board-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: 0 0 4px; }
+.board-head h2::before {
+  content: "";
+  display: inline-block;
+  width: 7px; height: 7px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: var(--accent);   /* 스킨마다 색 자동 */
+  vertical-align: middle;
+}
 .board-head h2 { border: 0; margin: 0; padding: 0; }
 .board-head .meta { color: var(--muted); font-size: 0.85rem; }
+
+/* 펼칠 수 있다는 상시 표시(아코디언 화살표) */
+.board-head::-webkit-details-marker { display: none; }
+.board-head::after {
+  content: ""; flex: none; width: 9px; height: 9px; margin-bottom: 3px;
+  border-right: 2.5px solid var(--accent); border-bottom: 2.5px solid var(--accent);
+  transform: rotate(45deg); transition: transform .25s;
+}
+details.board[open] > .board-head::after { transform: rotate(-135deg); margin-bottom: -3px; }
 
 /* Courses */
 .course-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
