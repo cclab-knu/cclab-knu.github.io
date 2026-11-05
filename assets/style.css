@@ -6,6 +6,7 @@
   --line: #e4e1da;
   --accent: #0f5c63;
   --accent-soft: #e3efef;
+  --accent2:#ff6a4d;
   --max: 1040px;
   /* 모달(PDF 뷰어) 크기 — 이 두 값만 바꾸면 됩니다 */
   --modal-w: 1100px;   /* 가로 최대폭 */
