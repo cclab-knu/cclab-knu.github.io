@@ -17,8 +17,8 @@ LOCAL = True
 OLD = "ASSETROOT"
 SCHOLAR = "https://scholar.google.com/citations?user=FQs_1FAAAAAJ&view_op=list_works&sortby=pubdate"
 NAV = [("Home", ""), ("People", "people/"), ("Research", "research/"),
-       ("Publications", "publications/"), ("News", "news/"), ("Courses", "courses/"),
-       ("✎ 글쓰기", "write.html")]
+       ("Publications", "publications/"), ("News", "news/"), ("Courses", "courses/")]
+#        ("✎ 글쓰기", "write.html")]
 e = html.escape
 
 # 강의 게시판 표시 순서와 이름 (폴더명 = id)
