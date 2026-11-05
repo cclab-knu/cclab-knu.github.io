@@ -241,7 +241,7 @@ ol.pubs li::before {
 .modal-text { padding: 18px 20px; line-height: 1.7; border-bottom: 1px solid var(--line); max-height: 60vh; overflow: auto; }
 .modal-text img, .post-img { max-width: 100%; height: auto; border-radius: 6px; margin: 10px 0; display: block; }
 
-.board { margin-bottom: 40px; }
+.board { margin-bottom: 20px; }
 .board-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: 0 0 4px; }
 .board-head h2 { border: 0; margin: 0; padding: 0; }
 .board-head .meta { color: var(--muted); font-size: 0.85rem; }
