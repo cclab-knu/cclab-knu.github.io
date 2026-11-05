@@ -130,8 +130,9 @@ dl.contact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 .pi .role { color: var(--muted); margin: 4px 0 16px; }
 .pi-bio h4 { font-size: 0.95rem; margin: 18px 0 8px; color: var(--accent); }
 .pi-bio ul { list-style: none; padding: 0; margin: 0; }
-.pi-bio li { padding: 3px 0; color: var(--ink); font-size: 0.95rem; }
-.pi-bio li strong { color: var(--muted); font-weight: 500; font-variant-numeric: tabular-nums; }
+.pi-bio li { padding: 3px 0 3px 10.5em; color: var(--ink); font-size: 0.95rem; }
+.pi-bio li strong { display: inline-block; width: 10.5em; margin-left: -10.5em;
+  white-space: nowrap; color: var(--muted); font-weight: 500; font-variant-numeric: tabular-nums; }
 
 /* Avatar */
 .avatar { width: 100%; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: var(--accent-soft); }
@@ -314,6 +315,8 @@ ol.pubs li::before {
   main { padding: 24px 0 44px; }
   h2 { margin-top: 36px; }
   .wform .w-row { grid-template-columns: 1fr; }
+  .pi-bio li { padding-left: 0; }
+  .pi-bio li strong { display: inline; width: auto; margin-left: 0; white-space: normal; }
   .members { grid-template-columns: 1fr; }
   .alumni { grid-template-columns: 1fr 1fr; }
   .gallery { grid-template-columns: 1fr; }
