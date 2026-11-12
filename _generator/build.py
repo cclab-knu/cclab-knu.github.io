@@ -78,6 +78,8 @@ def _inline(s):
     s = e(s)
     # 인라인 코드 먼저 (다른 서식에서 보호)
     s = re.sub(r"`([^`]+?)`", r"<code>\1</code>", s)
+    # CMS(Sveltia/Decap)가 bold/이탤릭을 \*\* , \_ 처럼 이스케이프해 저장하는 경우 복원
+    s = re.sub(r"\\([*_])", r"\1", s)
     s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
     s = re.sub(r"(?<!\*)\*(?!\s)(.+?)(?<!\s)\*(?!\*)", r"<em>\1</em>", s)
     s = re.sub(r"(?<!\w)_(?!\s)(.+?)(?<!\s)_(?!\w)", r"<em>\1</em>", s)
@@ -1023,6 +1025,7 @@ write_script = """
   function mdInline(s) {
     s = s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     s = s.replace(/`([^`]+?)`/g, '<code>$1</code>');
+    s = s.replace(/\\\\([*_])/g, '$1');
     s = s.replace(/\\*\\*(.+?)\\*\\*/g, '<strong>$1</strong>');
     s = s.replace(/(?<!\\*)\\*(?!\\s)(.+?)(?<!\\s)\\*(?!\\*)/g, '<em>$1</em>');
     s = s.replace(/(?<!\\w)_(?!\\s)(.+?)(?<!\\s)_(?!\\w)/g, '<em>$1</em>');
