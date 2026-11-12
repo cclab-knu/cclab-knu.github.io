@@ -1,4 +1,4 @@
-계산화학실험실(이하 '우리 실험실')에서는 **계산 및 이론 화학 방법**들을 이용하여 생체계 등 **다양한 계에서 일어나는 물리, 화학적 과정의 메커니즘** 연구를 진행하고 있습니다. 우리 실험실에서 사용하는 계산 및 이론 화학 방법들은 **통계열역학**에 기반을 두고 있으며, **컴퓨터를 이용한 모의실험(computer simulation)**이 주된 연구 방법의 하나입니다.
+계산화학실험실(이하 '우리 실험실')에서는 **계산 및 이론 화학 방법**들을 이용하여 생체계 등 **다양한 계에서 일어나는 물리, 화학적 과정의 메커니즘** 연구를 진행하고 있습니다. 우리 실험실에서 사용하는 계산 및 이론 화학 방법들은 **통계열역학**에 기반을 두고 있으며, \*\*컴퓨터를 이용한 모의실험(computer simulation)\*\*이 주된 연구 방법의 하나입니다.
 
 ## 단백질과 기능성 분자의 세포막 결합과 투과
 
@@ -10,11 +10,11 @@
 
 이온채널은 세포막에 존재하는 막단백질의 한 종류로, 이온들의 세포막 통과에 관여하면서 신경과 근육의 자극, 감각신호 전달에 중요한 역할을 담당합니다. 미국 Scripps 연구소의 Ghadiri 교수 연구진이 합성한 고리형 펩타이드 나노튜브(cyclic peptide nanotube)는 이온채널과 같은 기능을 하는 합성 단백질로, 항생제나 이온센서로 사용될 수 있다고 알려져 있습니다. 고리형 펩타이드 나노튜브는 곁사슬(side chain)이 친수성인지 소수성인지에 따라 크게 두 종류로 나눌 수 있습니다.
 
-![cyclic peptide nanotube 종류](assets/images/nanotube_types01.jpg)
+![cyclic peptide nanotube 종류](/assets/images/nanotube_types01_small.jpg)
 
 우리 실험실에서는 분자동역학 모의실험(molecular dynamics simulation)과 몬테카를로 모의실험(Monte Carlo simulation) 등을 이용하여 고리형 펩타이드 나노튜브가 선택적으로 양이온만을 통과시키는 원인과, 나노튜브와 세포막의 상호작용이 이온 이동에 미치는 영향 등을 연구하고 있습니다.
 
-![nanotube 내 Na+ 이동](assets/images/na_in_nanotube.png)
+![nanotube 내 Na+ 이동](/assets/images/na_in_nanotube_small.jpg)
 
 _Hwang et al., J. Phys. Chem. B 110, 26448 (2006)_
 
