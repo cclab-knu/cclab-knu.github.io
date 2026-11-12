@@ -3,7 +3,7 @@ name: 황현석
 name_en: Hyonseok Hwang
 role: 교수
 email: hhwang@kangwon.ac.kr
-phone: 033-250-8497
+phone: ''
 photo: images/hhwang05.png
 ---
 
