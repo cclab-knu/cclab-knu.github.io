@@ -10,7 +10,7 @@ Using molecular dynamics (MD), Monte Carlo (MC) simulations and mean-field theor
 
 ![Na+ in nanotube](assets/images/na_in_nanotube.png)
 
-*Hwang et al., J. Phys. Chem. B 110, 26448 (2006)*
+_Hwang et al., J. Phys. Chem. B 110, 26448 (2006)_
 
 ## Insertion and assembly of proteins into cell membranes
 
@@ -24,6 +24,4 @@ DNA passing through an ion channel partially blocks the ion current, and the siz
 
 ![DNA translocation](assets/images/dna_translocation02.png)
 
-## Shock waves in argon gas
-
-We study the physical properties of shock waves propagating in argon gas, such as the kinetic energy distribution of argon atoms, using nonequilibrium molecular dynamics (NEMD) simulations developed in our group.
+##
