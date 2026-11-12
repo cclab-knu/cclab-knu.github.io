@@ -9,9 +9,9 @@ photo: images/hhwang05.png
 
 ## 학력
 
-- **1998.09 – 2003.08** · Ph.D. in Chemistry, The University of Texas at Austin (지도교수: Prof. Peter J. Rossky)
-- **1995.03 – 1997.02** · M.S. in Chemistry, 서울대학교(지도교수: 신국조)
-- **1989.03 – 1995.02** · B.S. in Chemistry, 서울대학교
+- **1998 – 2003** · Ph.D. in Chemistry, The University of Texas at Austin (지도교수: Prof. Peter J. Rossky)
+- **1995 – 1997** · M.S. in Chemistry, 서울대학교(지도교수: 신국조)
+- **1989 – 1995** · B.S. in Chemistry, 서울대학교
 
 ## 경력
 
