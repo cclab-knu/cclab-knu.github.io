@@ -17,5 +17,5 @@ photo: images/hhwang05.png
 
 - **2007.03 – 현재** · 강원대학교 화학과 전임강사·조교수·부교수·교수
 - **2008.07 – 2008.08** · Visiting Researcher, Northwestern University
-- **2003.09 – 2007.04** · Postdoctoral Researcher, Northwestern University (Prof. George C. Schatz, Prof. Mark A. Ratner)
+- **2003.09 – 2007.04** · Postdoctoral Researcher, Northwestern University (Advisers: Prof. George C. Schatz and Prof. Mark A. Ratner)
 - **1997.05 – 1998.05** · 연구원, 서울대학교 기초과학연구원
